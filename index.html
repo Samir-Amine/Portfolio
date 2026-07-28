@@ -172,10 +172,7 @@ section{padding:100px 0}
 .section-head{margin-bottom:52px;max-width:640px}
 .section-head .eyebrow{margin-bottom:16px}
 .section-head h2{font-size:clamp(26px,3vw,36px)}
-.divider{
-  height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);
-  max-width:var(--maxw);margin:0 auto;
-}
+
 .section-gap-lg{padding-top:10px}
 
 @media (max-width:640px){ .section-gap-lg{padding-top:90px} }
@@ -283,15 +280,29 @@ section{padding:100px 0}
 
 /* ---------- CONTACT ---------- */
 .contact-box{
-  background:var(--bg-raised);border:1px solid var(--line);border-radius:20px;
-  padding:60px;display:flex;justify-content:space-between;align-items:center;gap:40px;
-  position:relative;overflow:hidden;
+  background:var(--bg-raised);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:60px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:40px;
+  position:relative;
+  overflow:hidden;
 }
 .contact-box::after{
-  content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;
+  content:"";
+  position:absolute;
+  right:-60px;
+  top:-60px;
+  width:220px;
+  height:220px;
+  border-radius:50%;
   background:radial-gradient(circle,rgba(139,124,255,0.16),transparent 70%);
 }
-.contact-left h2{font-size:clamp(24px,3vw,32px);margin-bottom:10px}
+.contact-left h2{font-size:clamp(24px,3vw,32px);
+                 margin-bottom:10px}
 .contact-left p{color:var(--text-dim);font-size:15px;max-width:40ch}
 .contact-right{display:flex;flex-direction:column;gap:12px;align-items:flex-end;position:relative;z-index:1}
 .email-copy{
