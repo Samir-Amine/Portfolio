@@ -397,6 +397,7 @@ section{padding:100px 0}
         <li><a href="#about" data-i18n="nav.about">À propos</a></li>
         <li><a href="#experience" data-i18n="nav.experience">Expérience</a></li>
         <li><a href="#projects" data-i18n="nav.projects">Projets</a></li>
+        <li><a href="#websites" data-i18n="nav.websites">Sites</a></li>
         <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
     </nav>
@@ -526,8 +527,18 @@ section{padding:100px 0}
     <div class="projects-grid" id="projectsGrid"></div>
   </section>
 
- 
+
 <br>
+  <!-- WEBSITES -->
+  <section id="websites" class="wrap section-gap-lg">
+    <div class="section-head">
+      <p class="eyebrow" data-i18n="sites.eyebrow">SITES WEB</p>
+      <h2 data-i18n="sites.heading">Sites que j'ai créés</h2>
+    </div>
+    <div class="projects-grid" id="websitesGrid"></div>
+  </section>
+<br>
+
   <!-- CONTACT -->
   <section id="contact" class="wrap section-gap-lg">
     <div class="contact-box">
@@ -576,6 +587,7 @@ section{padding:100px 0}
         <a href="#about" data-i18n="nav.about">À propos</a>
         <a href="#experience" data-i18n="nav.experience">Expérience</a>
         <a href="#projects" data-i18n="nav.projects">Projets</a>
+        <a href="#websites" data-i18n="nav.websites">Sites</a>
         <a href="#contact" data-i18n="nav.contact">Contact</a>
       </div>
     </div>
@@ -642,6 +654,8 @@ const UI = {
     "exp.eyebrow":"PARCOURS","exp.heading":"Expérience & formation",
     "proj.eyebrow":"AUTOMATISATIONS","proj.heading":"Workflows en production",
     "proj.more":"Voir le workflow",
+    "nav.websites":"Sites",
+    "sites.eyebrow":"SITES WEB","sites.heading":"Sites que j'ai créés","sites.visit":"Voir le site",
     "contact.heading":"Contact","contact.text":"Une idée de workflow à automatiser ? Écrivez-moi.",
     "contact.cta":"Envoyer un email","contact.copy":"copier","contact.copied":"copié !",
     "footer.text":"Conçu et automatisé par Amine Samir.",
@@ -663,6 +677,8 @@ const UI = {
     "exp.eyebrow":"BACKGROUND","exp.heading":"Experience & education",
     "proj.eyebrow":"AUTOMATIONS","proj.heading":"Workflows in production",
     "proj.more":"View the workflow",
+    "nav.websites":"Websites",
+    "sites.eyebrow":"WEBSITES","sites.heading":"Websites I've built","sites.visit":"View site",
     "contact.heading":"Contact","contact.text":"Have a workflow you'd like automated? Reach out.",
     "contact.cta":"Send an email","contact.copy":"copy","contact.copied":"copied!",
     "footer.text":"Designed and automated by Amine Samir.",
@@ -810,6 +826,25 @@ const PROJECTS = [
   }
 ];
 
+/* =========================================================
+  ADD A NEW WEBSITE HERE — just copy one block and edit it.
+  accent: pick one of var(--violet) var(--pink) var(--blue) var(--green) var(--amber) var(--red)
+  img: a normal image URL works fine (screenshot hosted anywhere) — no base64 needed
+  url: the live site — clicking the card opens it in a new tab
+   ========================================================= */
+const WEBSITES = [
+  {
+    accent: "var(--blue)",
+    img: "https://your-screenshot-url.png",
+    tag_fr: "Site vitrine", tag_en: "Business Website",
+    title_fr: "LuxLogo AI — AI-Powered Logo Studio", title_en: "LuxLogo AI — AI-Powered Logo Studio",
+    blurb_fr: "LuxLogo AI est un générateur de logos basé sur l'IA qui transforme les informations de base d'une entreprise en quatre concepts de logos uniques et luxueux en quelques secondes. Il s'agit d'une interface statique connectée à un système d'automatisation Make.com, sans serveur ni base de données.",
+    blurb_en: "LuxLogo AI is an AI-powered logo generator that turns a company's basic details into four unique, luxury-style logo concepts in seconds. Built as a static frontend connected to a Make.com automation backend, with no server or database required.",
+    tools: ["HTML","CSS","JavaScript"],
+    url: "https://samir-amine.github.io/luxlogo-ai/"
+  },
+];
+
 /* ========================= STATE ========================= */
 let currentLang = "fr";
 
@@ -869,6 +904,30 @@ function renderProjects(){
   }).join("");
 }
 
+function renderWebsites(){
+  const grid = document.getElementById("websitesGrid");
+  if(!grid) return;
+  grid.innerHTML = WEBSITES.map((s)=>{
+    const tag = currentLang==="fr" ? s.tag_fr : s.tag_en;
+    const title = currentLang==="fr" ? s.title_fr : s.title_en;
+    const blurb = currentLang==="fr" ? s.blurb_fr : s.blurb_en;
+    return `<a class="proj-card" style="--card-accent:${s.accent};text-decoration:none" href="${s.url}" target="_blank" rel="noopener">
+      <div class="proj-thumb-wrap">
+        <div class="proj-accent-bar"></div>
+        <img src="${s.img}" alt="${title}" loading="lazy">
+      </div>
+      <div class="proj-body">
+        <div class="proj-tag">${tag}</div>
+        <div class="proj-title">${title}</div>
+        <div class="proj-blurb">${blurb}</div>
+        <div class="chip-row">${s.tools.map(tool=>`<span class="chip">${tool}</span>`).join("")}</div>
+        <div class="proj-more">${t("sites.visit")} →</div>
+      </div>
+    </a>`;
+  }).join("");
+}
+
+
 function setLang(lang){
   currentLang = lang;
   document.getElementById("btnFr").classList.toggle("active", lang==="fr");
@@ -876,6 +935,7 @@ function setLang(lang){
   applyStaticI18n();
   renderTimeline();
   renderProjects();
+  renderWebsites();
 }
 
 /* ========================= MODAL ========================= */
@@ -925,6 +985,7 @@ document.querySelectorAll("#navLinks a").forEach(a=>{
 /* ========================= INIT ========================= */
 renderTimeline();
 renderProjects();
+renderWebsites();
 applyStaticI18n();
 
 </script>
