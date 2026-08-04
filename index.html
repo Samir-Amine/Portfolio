@@ -547,7 +547,7 @@ section{padding:100px 0}
         <p data-i18n="contact.text">Une idée de workflow à automatiser ? Écrivez-moi.</p>
       </div>
       <div class="contact-right">
-        <a href="mailto:aminesamir251@gmail.com" class="btn btn-primary" data-i18n="contact.cta">Envoyer un email</a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aminesamir251@gmail.com&su=Subject%20here&body=Message%20body%20here" class="btn btn-primary" data-i18n="contact.cta">Envoyer un email</a>
         <div class="email-copy">
           <span>aminesamir251@gmail.com</span>
           <button onclick="copyEmail(this)" data-i18n="contact.copy" aria-label="Copy email">copier</button>
@@ -586,7 +586,7 @@ section{padding:100px 0}
       <div class="footer-links">
         <a href="#about" data-i18n="nav.about">À propos</a>
         <a href="#experience" data-i18n="nav.experience">Expérience</a>
-        <a href="#projects" data-i18n="nav.projects">Projets</a>
+        <a href="#projects" data-i18n="nav.projects">Automatisation</a>
         <a href="#websites" data-i18n="nav.websites">Sites</a>
         <a href="#contact" data-i18n="nav.contact">Contact</a>
       </div>
@@ -641,7 +641,7 @@ section{padding:100px 0}
 /* ========================= DATA ========================= */
 const UI = {
   fr: {
-    "nav.about":"À propos","nav.experience":"Expérience","nav.projects":"Projets","nav.contact":"Contact","nav.cta":"Contact",
+    "nav.about":"À propos","nav.experience":"Expérience","nav.projects":"Automatisation","nav.contact":"Contact","nav.cta":"Contact",
     "hero.eyebrow":"TECHNICIEN DÉVELOPPEMENT · AUTOMATISATION IA",
     "hero.lead":"Technicien spécialisé en développement informatique, je connecte Instagram, Telegram, Gmail et l'IA pour automatiser des tâches répétitives — avec Make.com.",
     "hero.ctaPrimary":"Voir les automatisations","hero.ctaGhost":"Me contacter",
@@ -664,7 +664,7 @@ const UI = {
     "modal.trigger":"Déclencheur","modal.logic":"Logique","modal.actions":"Actions","modal.result":"Résultat",
   },
   en: {
-    "nav.about":"About","nav.experience":"Experience","nav.projects":"Projects","nav.contact":"Contact","nav.cta":"Contact",
+    "nav.about":"About","nav.experience":"Experience","nav.projects":"Automation","nav.contact":"Contact","nav.cta":"Contact",
     "hero.eyebrow":"DEV TECHNICIAN · AI AUTOMATION",
     "hero.lead":"A dev-technician turned automation builder — I connect Instagram, Telegram, Gmail and AI to remove repetitive work, using Make.com.",
     "hero.ctaPrimary":"View the automations","hero.ctaGhost":"Get in touch",
@@ -823,7 +823,38 @@ const PROJECTS = [
     result_fr:"Chaque prospect reçoit un email de suivi personnalisé quelques instants après avoir répondu au formulaire, avec une trace complète de chaque étape.",
     result_en:"Every prospect gets a personalized follow-up email moments after submitting the form, with a full trace of each step.",
     tools:["Tally","Google Sheets","Make AI Toolkit","Gmail"]
-  }
+  },
+  {
+  accent:"var(--yellow)",
+  img:"https://i.imgur.com/O1d05G2.png",
+  tag_fr:"Supabase · Gemini AI · Gmail",
+  tag_en:"Supabase · Gemini AI · Gmail",
+
+  title_fr:"Automatisation des demandes de contact",
+  title_en:"Contact Request Automation",
+
+  blurb_fr:"Les nouvelles demandes sont analysées, classées et traitées automatiquement avec une réponse IA.",
+  blurb_en:"New contact requests are analyzed, categorized, and automatically handled with AI-generated responses.",
+
+  trigger_fr:"Supabase détecte instantanément chaque nouvelle demande enregistrée.",
+  trigger_en:"Supabase instantly detects every newly submitted request.",
+
+  logic_fr:"Un routeur répartit la demande entre Insertion, Confirmation ou Contact.",
+  logic_en:"A router directs each request to the Insert, Confirmation, or Contact flow.",
+
+  actions_fr:"Supabase récupère les données, Gemini AI génère la réponse si nécessaire, puis Gmail envoie automatiquement l'email adapté.",
+  actions_en:"Supabase retrieves the data, Gemini AI generates a response when needed, and Gmail automatically sends the appropriate email.",
+
+  result_fr:"Chaque demande reçoit le bon traitement avec un suivi automatisé et des emails personnalisés.",
+  result_en:"Every request is processed through the correct workflow with automated tracking and personalized emails.",
+
+  tools:[
+    "Supabase",
+    "Google Gemini AI",
+    "Gmail",
+    "Make Router"
+  ]
+},
 ];
 
 /* =========================================================
@@ -842,6 +873,16 @@ const WEBSITES = [
     blurb_en: "LuxLogo AI is an AI-powered logo generator that turns a company's basic details into four unique, luxury-style logo concepts in seconds. Built as a static frontend connected to a Make.com automation backend, with no server or database required.",
     tools: ["HTML","CSS","JavaScript"],
     url: "https://samir-amine.github.io/luxlogo-ai/"
+  },
+  {
+    accent: "var(--amber)",
+    img: "https://i.imgur.com/97JZ9TW.png",
+    tag_fr: "Site de réservation", tag_en: "Booking Website",
+    title_fr: "Aurelia House — Plateforme de réservation directe", title_en: "Aurelia House — Direct Booking Platform",
+    blurb_fr: "Un site de réservation complet pour Aurelia House, un hôtel portuaire de dix-neuf chambres. Les clients réservent directement, sans commission tierce. Une automatisation connectée gère le reste : alertes de réservation, confirmations automatiques, et un concierge IA qui répond instantanément aux messages des clients dans leur propre langue.",
+    blurb_en: "A full-stack booking site for Aurelia House, a nineteen-room harbor hotel. Guests book directly, with no third-party commission. A connected automation layer handles the rest — booking alerts, automatic confirmations, and an AI concierge that replies instantly to guest messages in their own language.",
+    tools: ["Supabase","HTML","CSS","JavaScript"],
+    url: "https://aurelia-house-black.vercel.app"
   },
   
 ];
